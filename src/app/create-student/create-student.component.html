@@ -1,0 +1,63 @@
+<h3>Create Students</h3>
+<hr>
+<div [hidden]="submitted" style="width: 700px;">
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+  
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="FirstName" id="firstName" #firstName="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required
+          [(ngModel)]="employee.firstName" name="firstName">
+          <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+            <div *ngIf="firstName.errors.required">First Name is required</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <input type="text" class="form-control" placeholder="LastName" id="lastName" #lastName="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && lastName.invalid }" required
+          [(ngModel)]="employee.lastName" name="lastName">
+          <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+            <div *ngIf="lastName.errors.required">lastName is required</div>
+        </div>
+      </div>
+    </div><br>
+
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" id="emailId" placeholder="Email Id" #email="ngModel"
+         [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required email
+          [(ngModel)]="employee.emailId" name="emailId">
+          <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+    </div><br>
+    
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" id="age" placeholder="Age" #age="ngModel"
+        [ngClass]="{ 'is-invalid': f.submitted && age.invalid }" required 
+        [(ngModel)]="employee.age" name="age">
+        <div *ngIf="f.submitted && age.invalid" class="invalid-feedback">
+          <div *ngIf="age.errors.required">Age is required</div>
+      </div>
+      </div>
+
+      <div class="col">
+        <input type="text" class="form-control" id="city" placeholder="City" required [(ngModel)]="employee.city"
+          name="city">
+      </div>
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-success">Submit</button> &nbsp; &nbsp;
+    <button (click)="list()" class="btn btn-primary">Back </button><br>
+
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h2>You submitted successfully!</h2>
+</div>

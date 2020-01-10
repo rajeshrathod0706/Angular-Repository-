@@ -1,0 +1,40 @@
+<h3>Update Records</h3>
+<hr>
+<div [hidden]="submitted" style="width: 700px;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="First name" id="firstName" required
+                    [(ngModel)]="employee.firstName" name="firstName">
+            </div>
+
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name" id="lastName" required
+                    [(ngModel)]="employee.lastName" name="lastName">
+            </div>
+        </div><br>
+
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" id="emailId" placeholder="Email Id" required
+                    [(ngModel)]="employee.emailId" name="emailId">
+            </div>
+        </div><br>
+
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" id="age" placeholder="Age" required [(ngModel)]="employee.age"
+                    name="age">
+            </div>
+
+            <div class="col">
+                <input type="text" class="form-control" id="city" placeholder="city" required
+                    [(ngModel)]="employee.city" name="city">
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success">Submit</button>&nbsp;&nbsp;
+        <button (click)="list()" class="btn btn-primary">Back </button><br>
+
+    </form>
+</div>
